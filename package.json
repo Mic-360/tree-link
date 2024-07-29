@@ -29,7 +29,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"bits-ui": "^0.21.13",
+		"clsx": "^2.1.1",
 		"firebase": "^10.12.4",
-		"firebase-admin": "^12.3.0"
+		"firebase-admin": "^12.3.0",
+		"tailwind-merge": "^2.4.0",
+		"tailwind-variants": "^0.2.1"
 	}
 }
