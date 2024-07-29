@@ -4,4 +4,6 @@
 	export let data: LayoutData;
 </script>
 
-<slot />
+<main class="min-h-screen flex flex-col items-center justify-center gap-2">
+	<slot />
+</main>
