@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { PageData } from './$types';
-    
-    export let data: PageData;
+  import { currentStep } from '$lib/components/ui/stepper';
 </script>
+
+<div class="min-h-screen flex flex-col items-center justify-center">{$currentStep}</div>
