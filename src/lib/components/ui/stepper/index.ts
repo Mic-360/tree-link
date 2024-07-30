@@ -1,5 +1,8 @@
 import { type VariantProps, tv } from "tailwind-variants";
 import Root from "./stepper.svelte";
+import { writable } from 'svelte/store';
+
+export const currentStep = writable(0);
 
 const stepperVariants = tv({
   base: "flex items-center space-x-2",
