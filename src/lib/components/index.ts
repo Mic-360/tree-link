@@ -1,3 +1,3 @@
 import AnimateRoute from "./AnimateRoute.svelte";   
-
-export { AnimateRoute }
+import AuthCheck from "./AuthCheck.svelte";
+export { AnimateRoute, AuthCheck }
