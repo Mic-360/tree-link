@@ -28,7 +28,7 @@
 	>
 	  <ChevronLeft class="h-4 w-4" />
 	</Button>
-	<div class="flex items-center space-x-2">
+	<div class="flex items-center space-x-4">
 	  {#each steps as step, index}
 		<div
 		  class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium
@@ -37,7 +37,7 @@
 		  {index + 1}
 		</div>
 		{#if index < steps.length - 1}
-		  <div class="h-px w-4 bg-gray-300"></div>
+		  <div class="h-px w-6 bg-gray-300"></div>
 		{/if}
 	  {/each}
 	</div>

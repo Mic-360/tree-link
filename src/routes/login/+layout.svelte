@@ -3,9 +3,12 @@
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
   import { AnimateRoute } from '$lib/components';
 
-  $: {
+  let mounted = false;
+
+  $: if (browser && mounted) {
     if ($currentStep === 0 && $page.url.pathname !== '/login') {
       goto('/login');
     } else if ($currentStep === 1 && $page.url.pathname !== '/login/username') {
@@ -16,7 +19,8 @@
   }
 
   onMount(() => {
-    // Set initial step based on current route
+    mounted = true;
+
     if ($page.url.pathname === '/login/username') {
       currentStep.set(1);
     } else if ($page.url.pathname === '/login/photo') {
@@ -28,8 +32,13 @@
 </script>
 
 <section>
-  <nav>
-    <Stepper steps={['Step 1', 'Step 2', 'Step 3']} currentStep={$currentStep} size="xl" />
+  <nav class="mb-8 fixed top-0 left-0 right-0">
+    <Stepper
+      steps={['Step 1', 'Step 2', 'Step 3']}
+      currentStep={$currentStep}
+      size="xl"
+      class="flex items-center justify-center"
+    />
   </nav>
   <AnimateRoute>
     <slot></slot>
