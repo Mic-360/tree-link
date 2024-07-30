@@ -1,7 +1,5 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
-  import { auth } from '$lib/firebase.config';
-  import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
   import * as Card from '$lib/components/ui/card';
   import { userStore, signInWithGoogle, signOutUser } from '$lib/store';
 
