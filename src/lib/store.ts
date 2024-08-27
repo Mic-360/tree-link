@@ -50,6 +50,8 @@ export const userStore = () => {
   };
 };
 
+export const user = userStore();
+
 export const docStore = <T>(path: string, initialState: T) => {
   let unsubscribe: () => void;
   const docRef = doc(db, path);
@@ -86,7 +88,6 @@ type Link = {
   icon: string;
 };
 
-export const user = userStore();
 
 export const userData: Readable<UserData | null> = derived(user, ($user, set) => {
   if ($user) {

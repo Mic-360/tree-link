@@ -26,5 +26,3 @@ const adminDb = getFirestore();
 
 export { adminAuth, adminDb };
 
-export default pkg;
-
