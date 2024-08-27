@@ -60,46 +60,21 @@
 </script>
 
 <AuthCheck>
-  {#if $userData?.username}
-    <div class="flex flex-col items-center justify-center gap-y-4">
-      <Card.Root class="shadow-2xl shadow-accent p-8 space-y-8">
-        <Card.Title class="text-3xl flex flex-col gap-y-2 items-center">
-          <img src={$user?.photoURL} alt="profile" class="rounded-full h-28 w-28" />
-          <span class="text-center"
-            >Nice to meet you <br />
-            <span class="italic font-semibold">{$userData.username}.</span></span
-          >
-        </Card.Title>
-        <Card.Content class="max-w-lg text-center">
-          How about we get a little bit more from you. <br />
-          <em> Let's see a new avatar? </em>
-          <br />Okay let's get you a new look and feel.
-        </Card.Content>
-        <Card.Footer class="flex flex-col items-center">
-          <Button
-            type="submit"
-            variant={'outline'}
-            class="px-6 py-3 hover:shadow-2xl shadow-accent"
-            on:click={() => currentStep.set(2)}
-          >
-            <span class="flex gap-x-2 items-center">Get a new Avatar</span></Button
-          >
-        </Card.Footer>
-      </Card.Root>
-    </div>
-  {:else}
-    <div class="flex flex-col items-center justify-center gap-y-4">
-      <Card.Root class="shadow-2xl shadow-accent py-8  space-y-2">
-        <Card.Title class="text-3xl flex flex-col gap-y-2 items-center">
-          <img src={$user?.photoURL} alt="profile" class="rounded-full h-28 w-28" />
-          <span>Welcome <span class="italic font-semibold">{$user?.displayName}</span></span>
-        </Card.Title>
-        <Card.Content class="max-w-lg text-center">
-          Your name is nice but others here can have same name as you.
-          <em> So, what should we call you? </em>
-          <br />Maybe you can tell us your nickname or something.
-        </Card.Content>
-        <Card.Footer class="flex flex-col items-center">
+  <div class="flex flex-col items-center justify-center gap-y-4">
+    <Card.Root class="shadow-2xl shadow-accent py-8  space-y-2">
+      <Card.Title class="text-3xl flex flex-col gap-y-2 items-center">
+        <img src={$user?.photoURL} alt="profile" class="rounded-full h-28 w-28" />
+        <span>Welcome <span class="italic font-semibold">{$user?.displayName}</span></span>
+      </Card.Title>
+      <Card.Content class="max-w-lg text-center">
+        Your name is nice but others here can have same name as you.
+        <em> So, what should we call you? </em>
+        <br />Maybe you can tell us your nickname or something.
+      </Card.Content>
+      <Card.Footer class="flex flex-col items-center">
+        {#if $userData?.username}
+          <h2>Your username is <em>@{$userData?.username}</em></h2>
+        {:else}
           <form on:submit|preventDefault={confirmUsername} class="space-y-10">
             <div class="space-y-2">
               <Label for="username">Enter Your Username</Label>
@@ -130,8 +105,8 @@
               <span class="flex gap-x-2 items-center">Confirm @{username}</span></Button
             >
           </form>
-        </Card.Footer>
-      </Card.Root>
-    </div>
-  {/if}
+        {/if}
+      </Card.Footer>
+    </Card.Root>
+  </div>
 </AuthCheck>
