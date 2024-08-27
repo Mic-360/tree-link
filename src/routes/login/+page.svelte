@@ -1,9 +1,7 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
   import * as Card from '$lib/components/ui/card';
-  import { userStore, signInWithGoogle, signOutUser } from '$lib/store';
-
-  export const user = userStore();
+  import { user, signInWithGoogle, signOutUser } from '$lib/store';
 </script>
 
 <div class="flex flex-col items-center justify-center px-4">
@@ -22,7 +20,7 @@
     </Card.Header>
     <Card.Content class="flex items-center justify-center">
       {#if $user}
-        <div class="flex flex-col gap-y-4">
+        <div class="flex flex-col gap-y-6">
           <p class="italic text-xl">Welcome, {$user.displayName}</p>
           <Button
             on:click={signOutUser}
@@ -65,5 +63,3 @@
     </Card.Footer>
   </Card.Root>
 </div>
-
-<!-- login -->

@@ -4,12 +4,10 @@
   import { Label } from '$lib/components/ui/label';
   import { Button } from '$lib/components/ui/button';
   import { db } from '$lib/firebase.config';
-  import { userStore, userData } from '$lib/store';
+  import { user, userData } from '$lib/store';
   import { doc, getDoc, writeBatch } from 'firebase/firestore';
   import * as Card from '$lib/components/ui/card';
   import { currentStep } from '$lib/components/ui/stepper';
-
-  export const user = userStore();
 
   let username = 'tree-link-user';
   let loading = false;

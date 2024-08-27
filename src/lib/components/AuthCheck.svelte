@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { userStore } from '$lib/store';
+  import { user } from '$lib/store';
   import { Button } from './ui/button';
-  export const user = userStore();
 </script>
 
 {#if $user}
